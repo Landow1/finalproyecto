@@ -1,0 +1,32 @@
+{
+	"name": "pegar_capabronce",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_DATAFACTORY",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"nombre_de_archivo": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().nombre_de_archivo",
+					"type": "Expression"
+				},
+				"folderPath": "capabronce",
+				"fileSystem": "proyectofinal"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
